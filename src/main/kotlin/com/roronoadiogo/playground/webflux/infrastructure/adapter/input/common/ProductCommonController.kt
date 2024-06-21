@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/common/products")
-class ProductCommonController(private val productService: ProductService, private val productMapper: ProductMapper) {
+class ProductCommonController(
+    private val productService: ProductService,
+    private val productMapper: ProductMapper) {
 
     @GetMapping
     fun getAllProducts(): ResponseEntity<List<ProductResponseDTO>> {
