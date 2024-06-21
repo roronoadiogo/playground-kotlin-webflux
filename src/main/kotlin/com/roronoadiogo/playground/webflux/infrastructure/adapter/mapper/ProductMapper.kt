@@ -5,7 +5,7 @@ import com.roronoadiogo.playground.webflux.infrastructure.adapter.input.dto.requ
 import com.roronoadiogo.playground.webflux.infrastructure.adapter.input.dto.response.ProductResponseDTO
 import org.mapstruct.Mapper
 
-@Mapper
+@Mapper(componentModel = "spring")
 interface ProductMapper {
 
     fun toDTO(product: Product):ProductResponseDTO
