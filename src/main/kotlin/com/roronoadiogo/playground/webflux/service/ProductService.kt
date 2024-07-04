@@ -21,7 +21,7 @@ class ProductService(private val productRepository: ProductRepository): ProductU
         return productRepository.findAll()
     }
 
-    override fun deleteProductBytId(id: Long): Mono<Void> {
+    override fun deleteProductById(id: Long): Mono<Void> {
         return productRepository.deleteById(id)
     }
 }

@@ -9,6 +9,6 @@ interface ProductUseCase {
     fun createProduct(product: Product): Mono<Product>
     fun getProductById(id: Long): Mono<Product>
     fun getAllProducts(): Flux<Product>
-    fun deleteProductBytId(id: Long): Mono<Void>
+    fun deleteProductById(id: Long): Mono<Void>
 
 }
