@@ -43,7 +43,7 @@ class ProductCommonController(
 
     @DeleteMapping("/{id}")
     fun deleteProduct(@PathVariable id: Long): ResponseEntity<Void> {
-        productService.deleteProductBytId(id).block()
+        productService.deleteProductById(id).block()
         return ResponseEntity.noContent().build()
     }
 }
