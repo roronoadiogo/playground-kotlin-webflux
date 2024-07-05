@@ -1,10 +1,16 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    ROOT: INFO
+
 spring:
   r2dbc:
-    url: r2dbc:h2:mem:///testdb
-    username: sa
+    url: r2dbc:postgresql://localhost:5432/postgres
+    username: postgres
     password:
-    pool:
-      enabled: true
-
   flyway:
-    locations: classpath:db/migration
+    url: jdbc:postgresql://localhost:5432/postgres
+    user: postgres
+    password:
