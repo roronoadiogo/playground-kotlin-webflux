@@ -7,6 +7,7 @@ import com.roronoadiogo.playground.webflux.infrastructure.adapter.input.dto.requ
 import com.roronoadiogo.playground.webflux.infrastructure.adapter.input.dto.response.ProductResponseDTO
 import com.roronoadiogo.playground.webflux.infrastructure.adapter.mapper.ProductMapper
 import io.swagger.v3.oas.annotations.Operation
+import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import reactor.core.publisher.Flux
@@ -40,7 +41,7 @@ class ProductReactiveController(
                 if (e is ProductNotFoundException) {
                     Mono.just(ResponseEntity.notFound().build())
                 } else {
-                    Mono.just(ResponseEntity.status(500).build())
+                    Mono.just(ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build())
                 }
             }
     }
@@ -55,7 +56,7 @@ class ProductReactiveController(
                 ResponseEntity.created(uri).body(productMapper.toDTO(created))
             }
             .onErrorResume { e ->
-                Mono.just(ResponseEntity.status(500).build())
+                Mono.just(ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build())
             }
     }
 
@@ -69,7 +70,7 @@ class ProductReactiveController(
                 if (e is ProductNotFoundException) {
                     Mono.just(ResponseEntity.notFound().build())
                 } else {
-                    Mono.just(ResponseEntity.status(500).build())
+                    Mono.just(ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build())
                 }
             }
     }
